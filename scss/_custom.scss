@@ -1,4 +1,9 @@
 @import "compass/CSS3";
+@import 'breakpoint';
+
+$ipad: max-width 1024px;
+$iphone: max-width 960px;
+
 
 $celeste: #5dcce6;
 
@@ -18,12 +23,19 @@ h1{
 	line-height: 100%;
 	@include transform(rotate(-5deg));
 	@include text-shadow($celeste - 20 3px 3px 0);
+		@include breakpoint($ipad) {
+			font-size: 6em;
+			margin: .2em 0 0 0 !important;
+  		}
 }
 .icono{
 	text-align: center;
 	background-color: $celeste - 50;
 	color: $celeste;
 	display: block;
+	@include transition-property('all');
+  	@include transition-duration(.5s);
+  	@include transition-timing-function(ease-in);
 	&:hover{
 		color: white;
 	}
@@ -33,7 +45,8 @@ h1{
 }
 .img{
 	img{
-		text-align:center;
-		margin: 0 auto;
+	  display:block;
+	  margin-left:auto;
+	  margin-right:auto;
 	}
 }
